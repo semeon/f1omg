@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+  map.welcome '', :controller => 'welcome', :action => 'index'
+  map.dashboard 'dashboard', :controller => 'dashboard', :action => 'index'
+  map.help 'help', :controller => 'help', :action => 'index'
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -40,4 +45,6 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-  map.connect ':controller/:action.:format'end
+  map.connect ':controller/:action.:format'
+  
+end
