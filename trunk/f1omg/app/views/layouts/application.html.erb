@@ -1,9 +1,29 @@
 <html>
 	<head>
-		
+		<link rel="stylesheet" type="text/css" href="/stylesheets/application.css"/>
+		<title>Welcome To F1 OMG - F1 Management Online Game</title>
 	</head>
 	<body>
-		<h1>Application Layout</h1>
-		<%= yield %> 
+		<div id="f1omg_toprow">
+			<small>Application Layout</small>
+		</div>
+		<div id="f1omg_header">
+			<br/>
+			<br/>
+			<br/>
+			<div id="f1omg_navbar">
+				<%= render :partial => 'menu/index' %>
+				<%= yield :menu %> 
+			</div>
+		</div>
+		<div id="f1omg_content">
+			<%= yield %> 
+		</div>
+		<div id="f1omg_footer">
+			<br/>
+			Copyright Semeon Peradze, 2009.
+			<br/>
+			<br/>
+		</div>
 	</body>
 </html>
