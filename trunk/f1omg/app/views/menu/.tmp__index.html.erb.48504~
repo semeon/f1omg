@@ -1,5 +1,0 @@
-<% div_for menu do %>
-	<p>
-	 Menu Bar Is Here
-	</p>
-<% end %>

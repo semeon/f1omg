@@ -1,0 +1,23 @@
+<p>
+  <b>Id:</b>
+  <%=h @sim_team.id %>
+</p>
+
+<p>
+  <b>Ownerid:</b>
+  <%=h @sim_team.ownerId %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @sim_team.title %>
+</p>
+
+<p>
+  <b>Money:</b>
+  <%=h @sim_team.money %>
+</p>
+
+
+<%= link_to 'Edit', edit_sim_team_path(@sim_team) %> |
+<%= link_to 'Back', sim_teams_path %>
