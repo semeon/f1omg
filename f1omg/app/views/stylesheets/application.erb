@@ -23,7 +23,7 @@ div#f1omg_toprow {
 div#f1omg_header {
 	border: 0px solid <%= @border_color %>;
 	border-bottom: 1px solid <%= @border_color %>;
-	border-top: 1px solid <%= @border_color %>;
+	border-top: 1px solid grey;
 	padding: 0px;
 	margin: 0px;
 	text-align: center;
@@ -32,6 +32,17 @@ div#f1omg_header {
     background-repeat: repeat;
     background-position: top left;
 
+}
+
+div#f1omg_subheader {
+	border: 0px solid grey;
+	border-bottom: 0px solid grey;
+	border-top: 0px solid grey;
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+	vertical-align: bottom;
+/*    background: lightgrey; */
 }
 
 #f1omg_logo {
@@ -63,12 +74,44 @@ div#f1omg_navbar {
 	display: inline;
 	font-size: 12px;
 	font-weight: bold;	
-	color: #9999ff;
 }
 
 .f1omg_menuitem a {
 	color: #ccccff;
 }
+
+div#f1omg_loginbar {
+	border: 0px solid grey;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin: 0px;
+	width: <%= @content_width %>;
+	height: 19px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+	vertical-align: top;
+
+}
+
+.f1omg_loginbaritem {
+	border: 0px solid <%= @border_color %>;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	margin-left: 5px;
+	margin-right: 5px;
+	display: inline;
+	font-size: 10px;
+	font-weight: normal;
+	color: grey;	
+}
+
+.f1omg_loginbaritem a {
+	color: grey;
+}
+
+
 
 
 div#f1omg_content {
@@ -86,7 +129,8 @@ div#f1omg_footer {
 	border-top: 1px solid <%= @border_color %>;
 	border-bottom: 0px solid <%= @border_color %>;
 	padding: 0px;
-	margin: 0px;
+	margin: 0px;	
+	margin-top: 30px;
 	text-align: center;
 	font-size: 12px;
 /*
