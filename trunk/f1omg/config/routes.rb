@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.dashboard 'dashboard', :controller => 'dashboard', :action => 'index'
   map.help 'help', :controller => 'help', :action => 'index'
   map.teams 'teams', :controller => 'sim_teams'
+  map.yourteam 'yourteam', :controller => 'sim_teams', :action => 'yourteam'
 
 
   map.signup '/signup', :controller => 'users', :action => 'new'

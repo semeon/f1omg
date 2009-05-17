@@ -2,22 +2,9 @@
 
 <% form_for(@sim_team) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </p>
-  <p>
-    <%= f.label :ownerId %><br />
-    <%= f.text_field :ownerId %>
-  </p>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :money %><br />
-    <%= f.text_field :money %>
   </p>
   <p>
     <%= f.submit 'Create' %>
