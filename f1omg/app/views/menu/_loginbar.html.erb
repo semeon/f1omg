@@ -1,6 +1,6 @@
 <% if logged_in? %>				
-	<div class="f1omg_loginbaritem">Logged in as: <%= link_to h(current_user.login.capitalize), user_path(current_user) %></div>
-<!--	<div class="f1omg_loginbaritem"><%= link_to 'Edit Profile', edit_user_path(current_user) %></div> -->
+	<div class="f1omg_loginbaritem">Logged in as: <%= link_to h(current_user.name), user_path(current_user) %></div>
+	<div class="f1omg_loginbaritem"><%= link_to 'Account', edit_user_path(current_user) %></div>
 <!--	<div class="f1omg_loginbaritem"><%= link_to 'Change Password', change_password_path %></div> -->
 	<div class="f1omg_loginbaritem"><%= link_to 'Log Out', logout_url %></div>
 	<% if current_user.has_role?('administrator') %>

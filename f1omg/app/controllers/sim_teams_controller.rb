@@ -1,6 +1,8 @@
 class SimTeamsController < ApplicationController
   # GET /sim_teams
   # GET /sim_teams.xml
+
+
   def index
     @sim_teams = SimTeam.all
 
@@ -13,7 +15,7 @@ class SimTeamsController < ApplicationController
   # GET /sim_teams/1
   # GET /sim_teams/1.xml
   def show
-    @sim_team = SimTeam.find(params[:id])
+    @sim_team = SimTeam.find( params[:id] )
 
     respond_to do |format|
       format.html # show.html.erb
@@ -21,27 +23,41 @@ class SimTeamsController < ApplicationController
     end
   end
 
+  def yourteam
+    @sim_team = SimTeam.find_by_ownerId( current_user )
+  end
+
+ 
   # GET /sim_teams/new
   # GET /sim_teams/new.xml
   def new
-    @sim_team = SimTeam.new
-
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @sim_team }
+      if SimTeam.find_by_ownerId( current_user )
+          flash[:error] = 'You already own a team.'
+          @sim_team = SimTeam.find_by_ownerId( current_user )
+          format.html { render :action => "yourteam" }
+          format.xml  { render :xml => @sim_team.errors, :status => :unprocessable_entity }
+      else
+        @sim_team = SimTeam.new
+          format.html # new.html.erb
+          format.xml  { render :xml => @sim_team }
+      end
     end
   end
 
   # GET /sim_teams/1/edit
   def edit
-    @sim_team = SimTeam.find(params[:id])
+    @sim_team = SimTeam.find_by_ownerId( current_user )
   end
 
   # POST /sim_teams
   # POST /sim_teams.xml
   def create
     @sim_team = SimTeam.new(params[:sim_team])
-
+    @sim_team.ownerId = current_user
+    # TODO - make initial budget conficurable
+    @sim_team.money = 100000
+    
     respond_to do |format|
       if @sim_team.save
         flash[:notice] = 'SimTeam was successfully created.'

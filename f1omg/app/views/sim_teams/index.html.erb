@@ -11,7 +11,7 @@
 <% @sim_teams.each do |sim_team| %>
   <tr>
     <td><%=h sim_team.id %></td>
-    <td><%=h sim_team.ownerId %></td>
+    <td><%=h User.find_by_id(sim_team.ownerId).name %></td>
     <td><%=h sim_team.title %></td>
     <td><%=h sim_team.money %></td>
     <td><%= link_to 'Show', sim_team %></td>

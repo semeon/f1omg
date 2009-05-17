@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090511215546) do
+ActiveRecord::Schema.define(:version => 20090517182000) do
 
   create_table "permissions", :force => true do |t|
     t.integer  "role_id",    :null => false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20090511215546) do
     t.datetime "activated_at"
     t.string   "password_reset_code",       :limit => 40
     t.boolean  "enabled",                                 :default => true
+    t.string   "name"
   end
 
 end
