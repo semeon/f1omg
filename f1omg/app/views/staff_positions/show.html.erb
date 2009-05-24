@@ -1,0 +1,18 @@
+<p>
+  <b>Id:</b>
+  <%=h @staff_position.id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @staff_position.title %>
+</p>
+
+<p>
+  <b>Importance:</b>
+  <%=h @staff_position.importance %>
+</p>
+
+
+<%= link_to 'Edit', edit_staff_position_path(@staff_position) %> |
+<%= link_to 'Back', staff_positions_path %>

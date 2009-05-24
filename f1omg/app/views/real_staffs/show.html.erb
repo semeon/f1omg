@@ -1,0 +1,18 @@
+<p>
+  <b>Positionid:</b>
+  <%=h @real_staff.staff_position_id %>
+</p>
+
+<p>
+  <b>Realteamid:</b>
+  <%=h @real_staff.real_team_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @real_staff.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_real_staff_path(@real_staff) %> |
+<%= link_to 'Back', real_staffs_path %>

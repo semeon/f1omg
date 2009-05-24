@@ -1,19 +1,30 @@
-<h1>Listing sim_teams</h1>
+<h4 class="f1omg">Listing sim_teams</h4>
+<hr class="f1omg_hr"/>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Ownerid</th>
-    <th>Title</th>
-    <th>Money</th>
+<table class="f1omg_datatable">
+  <tr class="f1omg_th">
+    <td>Id</td>
+    <td>Ownerid</td>
+    <td>Title</td>
+    <td>Money</td>
+    <td>Crew</td>
   </tr>
 
 <% @sim_teams.each do |sim_team| %>
   <tr>
     <td><%=h sim_team.id %></td>
-    <td><%=h User.find_by_id(sim_team.ownerId).name %></td>
+    <td><%=h User.find_by_id(sim_team.user_id).name %></td>
     <td><%=h sim_team.title %></td>
     <td><%=h sim_team.money %></td>
+    <td>
+        <% @team_crew = sim_team.sim_staffs %>
+         <% if @team_crew != nil %>
+			<%= @team_crew.size %> 
+        <% else %>    
+            0
+        <% end %>
+        ppl
+    </td>
     <td><%= link_to 'Show', sim_team %></td>
     <td><%= link_to 'Edit', edit_sim_team_path(sim_team) %></td>
     <td><%= link_to 'Destroy', sim_team, :confirm => 'Are you sure?', :method => :delete %></td>

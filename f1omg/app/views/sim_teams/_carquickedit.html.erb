@@ -1,0 +1,13 @@
+<table class="f1omg_datatable">
+	<tr class="f1omg_th">
+		<td width="20%">Part</td>
+		<td width="40%">Manufacturer</td>
+		<td width="20%">Cost/Race</td>
+		<td width="20%"></td>
+	</tr>
+    <% @part_types.each do |part_type| %>
+      <tr>
+        <td><%=h part_type.title %></td>
+      </tr>
+    <% end %>
+</table>

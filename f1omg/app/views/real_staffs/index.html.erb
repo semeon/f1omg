@@ -1,0 +1,27 @@
+<h4 class="f1omg">Listing real_staffs</h4>
+<hr class="f1omg_hr"/>
+
+<table class="f1omg_datatable">
+  <tr class="f1omg_th">
+    <td>ID</td>
+    <td>Positionid</td>
+    <td>Realteamid</td>
+    <td>Name</td>
+  </tr>
+
+<% @real_staffs.each do |real_staff| %>
+  <tr>
+    <td><%=h real_staff.id %></td>
+    <td><%=h real_staff.staff_position_id %></td>
+    <td><%=h real_staff.real_team_id %></td>
+    <td><%=h real_staff.name %></td>
+    <td><%= link_to 'Show', real_staff %></td>
+    <td><%= link_to 'Edit', edit_real_staff_path(real_staff) %></td>
+    <td><%= link_to 'Destroy', real_staff, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New real_staff', new_real_staff_path %>

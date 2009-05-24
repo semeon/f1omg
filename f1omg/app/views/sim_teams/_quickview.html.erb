@@ -1,7 +1,7 @@
 <table class="f1omg_datatable">
 	<tr>
 		<td>Team Name:</td>
-		<td><%= SimTeam.find_by_ownerId( current_user ).title %></td>
+		<td><%= SimTeam.find_by_user_id( current_user ).title %></td>
 	</tr>
 	<tr>
 		<td>Owner:</td>
@@ -9,7 +9,7 @@
 	</tr>
 	<tr>
 		<td>Current Balance:</td>
-		<td>&#8364; <%= SimTeam.find_by_ownerId( current_user ).money %></td>
+		<td>&#8364; <%= SimTeam.find_by_user_id( current_user ).money %></td>
 	</tr>
 	<tr>
 		<td> </td>

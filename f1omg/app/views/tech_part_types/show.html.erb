@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @tech_part_type.title %>
+</p>
+
+<p>
+  <b>Importance:</b>
+  <%=h @tech_part_type.importance %>
+</p>
+
+
+<%= link_to 'Edit', edit_tech_part_type_path(@tech_part_type) %> |
+<%= link_to 'Back', tech_part_types_path %>

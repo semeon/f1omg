@@ -1,0 +1,29 @@
+<h4 class="f1omg">Listing real_tech_parts</h4>
+<hr class="f1omg_hr"/>
+
+<table class="f1omg_datatable">
+  <tr class="f1omg_th">
+    <td>ID</td>
+    <td>Parttypeid</td>
+    <td>Realteamid</td>
+    <td>Name</td>
+    <td>Cost</td>
+  </tr>
+
+<% @real_tech_parts.each do |real_tech_part| %>
+  <tr>
+    <td><%=h real_tech_part.id %></td>
+    <td><%=h real_tech_part.tech_part_type_id %></td>
+    <td><%=h real_tech_part.real_team_id %></td>
+    <td><%=h real_tech_part.name %></td>
+    <td><%=h real_tech_part.cost %></td>
+    <td><%= link_to 'Show', real_tech_part %></td>
+    <td><%= link_to 'Edit', edit_real_tech_part_path(real_tech_part) %></td>
+    <td><%= link_to 'Destroy', real_tech_part, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New real_tech_part', new_real_tech_part_path %>

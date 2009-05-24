@@ -1,0 +1,24 @@
+<h1>Editing real_team</h1>
+
+<% form_for(@real_team) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :logourl %><br />
+    <%= f.text_field :logourl %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @real_team %> |
+<%= link_to 'Back', real_teams_path %>

@@ -1,0 +1,25 @@
+<h4 class="f1omg">Listing staff_positions</h4>
+<hr class="f1omg_hr"/>
+
+<table class="f1omg_datatable">
+  <tr class="f1omg_th">
+    <td>Id</td>
+    <td>Title</td>
+    <td>Importance</td>
+  </tr>
+
+<% @staff_positions.each do |staff_position| %>
+  <tr>
+    <td><%=h staff_position.id %></td>
+    <td><%=h staff_position.title %></td>
+    <td><%=h staff_position.importance %></td>
+    <td><%= link_to 'Show', staff_position %></td>
+    <td><%= link_to 'Edit', edit_staff_position_path(staff_position) %></td>
+    <td><%= link_to 'Destroy', staff_position, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New staff_position', new_staff_position_path %>

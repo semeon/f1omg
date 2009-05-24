@@ -1,0 +1,51 @@
+<h4 class="f1omg">Listing real_teams</h4>
+<hr class="f1omg_hr"/>
+
+<table class="f1omg_datatable">
+  <tr class="f1omg_th">
+    <td>Id</td>
+    <td>Title</td>
+<!--    <td>Logourl</td> -->
+    <% @positions.each do |position| %>
+        <td><%=h position.title %></td>
+    <% end %>
+    <% @part_types.each do |part_type| %>
+        <td><%=h part_type.title %></td>
+    <% end %>
+  </tr>
+
+<% @real_teams.each do |real_team| %>
+  <tr>
+    <td><%=h real_team.id %></td>
+    <td><%=h real_team.title %></td>
+<!--    <td><%=h real_team.logourl %></td> -->
+    <% @positions.each do |position| %>
+        <% @staff = @real_staff.find(:first, :conditions => {:staff_position_id =>  position.id, :real_team_id => real_team.id } )  %>
+        <td>
+            <% if @staff != nil %>	
+                <%=h @staff.name %>
+            <% else %>
+                <%= @na_message %>
+            <% end %>
+        </td>
+    <% end %>
+    <% @part_types.each do |part_type| %>
+        <% @part = @real_parts.find(:first, :conditions => {:tech_part_type_id =>  part_type.id, :real_team_id => real_team.id } )  %>
+        <td>
+            <% if @staff != nil %>	
+                <%=h @part.name %>
+            <% else %>
+                <%= @na_message %>
+            <% end %>
+        </td>
+    <% end %>
+    <td><%= link_to 'Show', real_team %></td>
+    <td><%= link_to 'Edit', edit_real_team_path(real_team) %></td>
+    <td><%= link_to 'Destroy', real_team, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New real_team', new_real_team_path %>
