@@ -9,11 +9,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090517182000) do
+ActiveRecord::Schema.define(:version => 20090524205600) do
 
   create_table "permissions", :force => true do |t|
     t.integer  "role_id",    :null => false
     t.integer  "user_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "real_staffs", :force => true do |t|
+    t.integer  "staff_position_id"
+    t.integer  "real_team_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cost"
+  end
+
+  create_table "real_teams", :force => true do |t|
+    t.string   "title"
+    t.string   "logourl"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "real_tech_parts", :force => true do |t|
+    t.integer  "tech_part_type_id"
+    t.integer  "real_team_id"
+    t.string   "name"
+    t.integer  "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,10 +49,38 @@ ActiveRecord::Schema.define(:version => 20090517182000) do
     t.datetime "updated_at"
   end
 
+  create_table "sim_staffs", :force => true do |t|
+    t.integer  "sim_team_id"
+    t.integer  "real_staff_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sim_teams", :force => true do |t|
-    t.string   "ownerId"
+    t.string   "user_id"
     t.string   "title"
     t.integer  "money"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sim_tech_parts", :force => true do |t|
+    t.integer  "sim_team_id"
+    t.integer  "real_tech_part_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "staff_positions", :force => true do |t|
+    t.string   "title"
+    t.integer  "importance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tech_part_types", :force => true do |t|
+    t.string   "title"
+    t.integer  "importance"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

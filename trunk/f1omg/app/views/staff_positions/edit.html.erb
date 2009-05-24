@@ -1,0 +1,24 @@
+<h1>Editing staff_position</h1>
+
+<% form_for(@staff_position) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :importance %><br />
+    <%= f.text_field :importance %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @staff_position %> |
+<%= link_to 'Back', staff_positions_path %>

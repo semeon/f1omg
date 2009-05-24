@@ -1,0 +1,23 @@
+<p>
+  <b>Parttypeid:</b>
+  <%=h @real_tech_part.tech_part_type_id %>
+</p>
+
+<p>
+  <b>Realteamid:</b>
+  <%=h @real_tech_part.real_team_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @real_tech_part.name %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%=h @real_tech_part.cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_real_tech_part_path(@real_tech_part) %> |
+<%= link_to 'Back', real_tech_parts_path %>

@@ -3,13 +3,14 @@
 		<td width="60%">
 			<h4 class="f1omg">Team Information</h4>
 			<hr class="f1omg_hr"/>
-			<%= render :partial => 'sim_teams/simteamquickview' %>
+			<%= render :partial => 'sim_teams/quickview' %>
 			<hr class="f1omg_hr"/>
-			<div class="f1omg_alignedright"><%= link_to '[manage your team]', edit_sim_team_path(SimTeam.find_by_ownerId( current_user ).id) %></div>
+			<div class="f1omg_alignedright"><%= link_to '[manage your team]', yourteam_path %></div>
 		</td>
 		<td width="40%">
 			<h4 class="f1omg">Standings</h4>
 			<hr class="f1omg_hr"/>
+            <!-- TODO: Create separate file -->
 			<table class="f1omg_datatable" align="center">
 				<tr class="f1omg_th">
 					<td class="f1omg_th" width="20%" align="center">Pos</td>

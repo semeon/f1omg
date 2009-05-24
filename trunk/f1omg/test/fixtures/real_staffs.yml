@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  positionId: 1
+  realTeamId: 1
+  name: MyString
+
+two:
+  positionId: 1
+  realTeamId: 1
+  name: MyString

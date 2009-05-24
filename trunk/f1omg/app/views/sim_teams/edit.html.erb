@@ -1,28 +1,33 @@
-<h1>Editing sim_team</h1>
+<table class="f1omg_contenttable">
+	<tr>
+		<td width="60%">
+			<h4 class="f1omg">Staff</h4>
+			<hr class="f1omg_hr"/>
+			<%= render :partial => 'sim_teams/staffquickedit' %>
+            <br/>
+			<h4 class="f1omg">Cars</h4>
+			<hr class="f1omg_hr"/>
+			<%= render :partial => 'sim_teams/carquickedit' %>
+		</td>
+		<td width="40%">
+			<h4 class="f1omg">Finances</h4>
+			<hr class="f1omg_hr"/>
+            <!-- TODO: Create separate file -->
+			<table class="f1omg_datatable" align="center">
+				<tr class="f1omg_th">
+					<td class="f1omg_th" width="20%" align="center">Pos</td>
+					<td class="f1omg_th" width="60%">Team</td>
+					<td class="f1omg_th" width="20%" align="center">Pts</td>
+				</tr>
+			</table>
+			<hr class="f1omg_hr"/>
+            <div class="f1omg_alignedright"><a href="/">[see full table]</a></div>
+		</td>
+	</tr>
+</table>
 
-<% form_for(@sim_team) do |f| %>
-  <%= f.error_messages %>
 
-  <p>
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </p>
-  <p>
-    <%= f.label :ownerId %><br />
-    <%= f.text_field :ownerId %>
-  </p>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :money %><br />
-    <%= f.text_field :money %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
 
-<%= link_to 'Show', @sim_team %> |
-<%= link_to 'Back', sim_teams_path %>
+
+
+

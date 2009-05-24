@@ -1,0 +1,20 @@
+<h1>Editing sim_tech_part</h1>
+
+<% form_for(@sim_tech_part) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :sim_team_id %><br />
+    <%= f.text_field :sim_team_id %>
+  </p>
+  <p>
+    <%= f.label :real_tech_part_id %><br />
+    <%= f.text_field :real_tech_part_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sim_tech_part %> |
+<%= link_to 'Back', sim_tech_parts_path %>

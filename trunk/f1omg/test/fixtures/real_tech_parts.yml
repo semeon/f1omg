@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  partTypeId: 1
+  realTeamId: 1
+  name: MyString
+  cost: 1
+
+two:
+  partTypeId: 1
+  realTeamId: 1
+  name: MyString
+  cost: 1

@@ -1,13 +1,26 @@
 ActionController::Routing::Routes.draw do |map|
-
-
+  map.resources :sim_tech_parts
+  map.resources :sim_staffs
+  map.resources :real_tech_parts
+  map.resources :tech_part_types
+  map.resources :real_staffs
+  map.resources :real_teams
+  map.resources :staff_positions
   
   map.root :controller => 'welcome', :action => 'index'
   map.welcome '', :controller => 'welcome', :action => 'index'
   map.dashboard 'dashboard', :controller => 'dashboard', :action => 'index'
   map.help 'help', :controller => 'help', :action => 'index'
   map.teams 'teams', :controller => 'sim_teams'
-  map.yourteam 'yourteam', :controller => 'sim_teams', :action => 'yourteam'
+  map.yourteam 'yourteam', :controller => 'sim_teams', :action => 'edit'
+  map.createteam 'createteam', :controller => 'sim_teams', :action => 'new'
+
+  map.admin 'admin', :controller => 'admin', :action => 'index'
+  map.staff_positions 'staff_positions', :controller => 'staff_positions', :action => 'index'
+  map.tech_part_types 'tech_part_types', :controller => 'tech_part_types', :action => 'index'
+  map.real_teams 'real_teams', :controller => 'real_teams', :action => 'index'
+  map.real_staffs 'real_staffs', :controller => 'real_staffs', :action => 'index'
+  map.real_tech_parts 'real_tech_parts', :controller => 'real_tech_parts', :action => 'index'
 
 
   map.signup '/signup', :controller => 'users', :action => 'new'

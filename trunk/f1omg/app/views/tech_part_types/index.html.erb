@@ -1,0 +1,25 @@
+<h4 class="f1omg">Listing tech_part_types</h4>
+<hr class="f1omg_hr"/>
+
+<table class="f1omg_datatable">
+  <tr class="f1omg_th">
+    <td>ID</td>
+    <td>Title</td>
+    <td>Importance</td>
+  </tr>
+
+<% @tech_part_types.each do |tech_part_type| %>
+  <tr>
+    <td><%=h tech_part_type.id %></td>
+    <td><%=h tech_part_type.title %></td>
+    <td><%=h tech_part_type.importance %></td>
+    <td><%= link_to 'Show', tech_part_type %></td>
+    <td><%= link_to 'Edit', edit_tech_part_type_path(tech_part_type) %></td>
+    <td><%= link_to 'Destroy', tech_part_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tech_part_type', new_tech_part_type_path %>
