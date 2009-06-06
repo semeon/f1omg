@@ -3,6 +3,8 @@ class SimTeamsController < ApplicationController
   # GET /sim_teams.xml
 
 
+
+  # INDEX -------------------------------------------------------------------------
   def index
     @sim_teams = SimTeam.all
 
@@ -12,6 +14,7 @@ class SimTeamsController < ApplicationController
     end
   end
 
+  # SHOW  -------------------------------------------------------------------------
   # GET /sim_teams/1
   # GET /sim_teams/1.xml
   def show
@@ -22,12 +25,9 @@ class SimTeamsController < ApplicationController
       format.xml  { render :xml => @sim_team }
     end
   end
-
-  def yourteam
-    @sim_team = SimTeam.find_by_user_id( current_user )
-  end
-
  
+  # NEW  --------------------------------------------------------------------------
+  # GET /sim_teams/1/edit
   # GET /sim_teams/new
   # GET /sim_teams/new.xml
   def new
@@ -45,32 +45,42 @@ class SimTeamsController < ApplicationController
     end
   end
 
+  # EDIT --------------------------------------------------------------------------
   # GET /sim_teams/1/edit
   def edit
     if SimTeam.find_by_user_id( current_user ) == nil
-        flash[:notice] = 'Please create team first.'
+        flash[:notice] = 'Please create a team first.'
         redirect_to createteam_path
     end
-    @sim_team = SimTeam.find_by_user_id( current_user )
-    @sim_team_staff = @sim_team.sim_staffs
 
-    
+
+    @sim_team = SimTeam.find_by_user_id( current_user )
     @staff_positions = StaffPosition.all
     @part_types = TechPartType.all
 
-    #@sim_staff = SimStaff
-    #@real_staff = RealStaff
+    #@text = getYourStaffNameByPositionId(4)
+
     
     #CEO: position ID = 1
-    #@real_ceos = RealStaff.find(:all, :conditions => {:positionId =>  1} ) 
-    #@sql_query = "SELECT * FROM sim_staffs ss WHERE ss.real_staff_id IN (SELECT * FROM real_staffs rs WHERE rs.positionId = 1)"
-    #@sim_ceo = SimStaff.find_by_sql(@sql_query)
-    #flash[:notice] = @sim_ceo.name
-    
-    #@sim_parts = SimParts
+    @sim_ceo = SimStaff.find_by_id(1, :include => [{:real_staff => :staff_position}])
+    if @sim_ceo == nil
+      @sim_ceo_name = "Not Hired"
+    else
+      @sim_ceo_name = @sim_ceo.real_staff.name
+    end
+  
+    #CTO: position ID = 2
+    @sim_cto = SimStaff.find_by_id(2, :include => [{:real_staff => :staff_position}])
+    if @sim_cto == nil
+      @sim_cto_name = "Not Hired"
+    else
+      @sim_cto_name = @sim_cto.real_staff.name
+    end
+
   
   end
 
+  # CREATE -------------------------------------------------------------------------
   # POST /sim_teams
   # POST /sim_teams.xml
   def create
@@ -106,6 +116,7 @@ class SimTeamsController < ApplicationController
     end
   end
 
+  # UPDATE -------------------------------------------------------------------------
   # PUT /sim_teams/1
   # PUT /sim_teams/1.xml
   def update
@@ -123,6 +134,7 @@ class SimTeamsController < ApplicationController
     end
   end
 
+  # DELETE -------------------------------------------------------------------------
   # DELETE /sim_teams/1
   # DELETE /sim_teams/1.xml
   def destroy
@@ -134,4 +146,12 @@ class SimTeamsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  # YOURTEAM -----------------------------------------------------------------------
+  def yourteam
+    @sim_team = SimTeam.find_by_user_id( current_user )
+  end
+
+
+
 end

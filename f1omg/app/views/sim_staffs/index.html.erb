@@ -5,7 +5,9 @@
   <tr class="f1omg_th">
     <td>Id</td>
     <td>Simteamid</td>
-    <td>Realstaffid</td>
+    <td>Realstaff id</td>
+    <td>Realstaff name</td>
+    <td>Realstaff cost</td>
   </tr>
 
 <% @sim_staffs.each do |sim_staff| %>
@@ -13,6 +15,8 @@
     <td><%=h sim_staff.id %></td>
     <td><%=h sim_staff.sim_team_id %></td>
     <td><%=h sim_staff.real_staff_id %></td>
+    <td><%=h sim_staff.real_staff.name %></td>
+    <td><%=h sim_staff.real_staff.cost %></td>
     <td><%= link_to 'Show', sim_staff %></td>
     <td><%= link_to 'Edit', edit_sim_staff_path(sim_staff) %></td>
     <td><%= link_to 'Destroy', sim_staff, :confirm => 'Are you sure?', :method => :delete %></td>
