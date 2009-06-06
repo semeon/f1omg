@@ -1,17 +1,60 @@
 <table class="f1omg_datatable">
 	<tr class="f1omg_th">
 		<td width="20%">Role</td>
-		<td width="40%">Name</td>
+		<td width="60%">Name</td>
 		<td width="20%">Cost/Race</td>
-		<td width="20%"></td>
+
 	</tr>
-    <tr>
-        <td>CEO</td>
+    <% @staff_positions.each do |staff_position| %>
+      <tr>
+        <td><%=h staff_position.title %></td>
         <td>
-            <%= @sim_team_staff %>
+            <%= getYourStaffNameByPositionId(staff_position.id) %>
         </td>
+        <td>
+            <%= getYourStaffCostByPositionId(staff_position.id) %>
+        </td>
+      </tr>
+    <% end %>
+    
 
-    </tr>
-        
-
+    <tr>
+        <td>TEST</td>
+        <td>
+            <select class="f1omg_select" id="f1omg_stuff_select" name="stuff[item_id]">
+              <% 
+				 @items = RealStaff.all
+                 @items.each do |item| %>
+                  <option value="<%= item.id %>">
+                      <%= item.name %> (<%= item.cost %>)
+                  </option>
+             <% end %>
+             </select>
+        </td>
+    </tr>    
+    
+ 
+    <tr>
+        <td>TEST 2</td>
+        <td>
+            <div class="f1omg_selected_item" id="f1omg_selected_item" name="selected_staff">
+              <a href="">
+                <%= getYourStaffNameByPositionId(1) %>
+              </a>
+            </div>
+            <div class="f1omg_select" id="f1omg_stuff_select" name="staff_selector">
+              <% @items = RealStaff.all %>
+              <ul class="f1omg_dropdown">
+                  <% @items.each do |item| %>
+                      <li>
+                          <a href="">
+                              <%= item.name %> (<%= item.cost %>)
+                          </a>
+                      </li>
+                  <% end %>
+              </ul>
+            </div>
+        </td>
+    </tr>    
+     
 </table>

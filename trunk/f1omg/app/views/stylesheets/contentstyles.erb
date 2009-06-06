@@ -14,7 +14,7 @@
 }
 
 .f1omg_datatable {
-	width: 90%;
+	width: 100%;
 	border: 0px solid grey;
 	border-spacing: 0px;
 	border-collapse: collapse;
@@ -67,4 +67,34 @@ tr.f1omg_highlighted {
 
 div.f1omg_alignedright {
     text-align: right;
+}
+
+select.f1omg_select {
+	font-family: <%= @main_font %>;
+	border: 0px solid white;
+	color: <%= @main_color %>;
+    font-size: 11px;    
+}
+
+div.f1omg_select {
+	border: 1px solid <%= @main_color %>;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    padding: 0px;
+    display: none;
+}
+
+div.f1omg_select ul li a {
+	font-family: <%= @main_font %>;
+    font-size: 11px;    
+	color: <%= @main_color %>;
+}
+
+ul.f1omg_dropdown {
+    list-style-type: none;
+    margin: 0px;
+    padding: 5px;
+    marker-offset: 0px;
+    list-style-position: outside;
 }

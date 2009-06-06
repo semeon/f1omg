@@ -7,6 +7,7 @@
     <td>Positionid</td>
     <td>Realteamid</td>
     <td>Name</td>
+    <td>Cost</td>
   </tr>
 
 <% @real_staffs.each do |real_staff| %>
@@ -15,6 +16,7 @@
     <td><%=h real_staff.staff_position_id %></td>
     <td><%=h real_staff.real_team_id %></td>
     <td><%=h real_staff.name %></td>
+    <td><%=h real_staff.cost %></td>
     <td><%= link_to 'Show', real_staff %></td>
     <td><%= link_to 'Edit', edit_real_staff_path(real_staff) %></td>
     <td><%= link_to 'Destroy', real_staff, :confirm => 'Are you sure?', :method => :delete %></td>
